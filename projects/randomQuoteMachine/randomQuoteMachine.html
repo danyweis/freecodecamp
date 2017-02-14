@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="quote.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://use.fontawesome.com/8c14f362f7.js"></script>
+
+    <meta charset="utf-8">
+    <title>Random Quote Machine</title>
+  </head>
+  <body>
+
+    <div class="container-fluid theBox">
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-1 col-md-2 " ></div>
+    <div class="col-xs-10 col-md-8 text-center titleBox">
+      <h1>Random Quote Machine</h1>
+    </div>
+  </div><!-- end row title -->
+
+
+    <div class="row">
+      <div class="col-xs-1 col-md-2 "></div>
+
+       <div class="col-xs-10 col-md-8 quoteBox">
+
+
+         <div class="row">
+
+           <div class="col-xs-1 col-md-2"></div>
+
+           <div  class="col-xs- 10 col-md-8 text-center">
+             <blockquote>
+               <i class="fa fa-quote-left fa-2x fa-pull-left" aria-hidden="true"></i>
+               <p id="quoteText">Don't try creating yourself, just start creating youself.</p>
+               <footer class="text-right"><cite id="quoteAutor">Dany Weis</cite></footer>
+             </blockquote>
+           </div>
+         <div class="col-xs-1 col-md-2 ink"></div>
+         </div><!-- end row quote -->
+         <div class="row">
+           <div id="autor" class="col-xs-8 col-md-8"></div>
+         </div>
+
+
+       </div><!-- end quoteBox -->
+    </div><!-- end row quoteBox -->
+
+
+
+    <div class="row">
+      <div class="col-xs-2 col-md-2"></div>
+           <div class="col-xs-4 col-md-4 text-center">
+
+             <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+           </div>
+
+           <div class="col-xs-4 col-md-4 text-center">
+           <button onclick="newQuote()" id="getQuote" class="btn btn-primary btn-sm" >Random Quote</button>
+           </div>
+
+         </div><!-- end row buttons-->
+
+    <div class="saveInk">
+    <img src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/ink-drop.png" alt="drop of ink" /></div>
+</div><!-- end container -->
+</div><!-- end container-fluid -->
+
+<!-- JavaScript -->
+
+    <script src="quote.js">
+
+    </script>
+  </body>
+</html>

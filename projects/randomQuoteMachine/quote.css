@@ -1,0 +1,43 @@
+.theBox {
+  min-height: 100vh;
+  background-color: #fff;
+  }
+
+.titleBox h1{
+  font-family: 'Dr Sugiyama', cursive;
+  font-size: 45px;
+  padding: 30px 0 ;
+  text-shadow: 0 0 10px #ffffff;
+}
+.ink{
+  min-height: 100%;
+  background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/img-thing.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.quoteBox{
+  z-index: 100;
+  padding: 20px 5px;
+  font-family: 'La Belle Aurore', cursive;
+  font-size: 20px;
+  box-shadow: 0 0 15px #000;
+  min-height: 100px;
+  margin: 20px 0;
+  background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/papier.jpg") ;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.btn{
+  padding: 5px;
+  margin-top: 5px;
+}
+
+
+.saveInk{
+  position: absolute;
+  z-index: 0;
+  left: -150px;
+  top: 0;
+}
