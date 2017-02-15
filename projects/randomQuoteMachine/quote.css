@@ -1,43 +1,61 @@
-.theBox {
+.theBox { 
   min-height: 100vh;
-  background-color: #fff;
-  }
+  background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/card-1937488_1920.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-.titleBox h1{
+.titleBox>h1{
   font-family: 'Dr Sugiyama', cursive;
   font-size: 45px;
   padding: 30px 0 ;
   text-shadow: 0 0 10px #ffffff;
 }
+
 .ink{
-  min-height: 100%;
+  max-height: 100%;
   background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/img-thing.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .quoteBox{
-  z-index: 100;
   padding: 20px 5px;
   font-family: 'La Belle Aurore', cursive;
   font-size: 20px;
-  box-shadow: 0 0 15px #000;
+  box-shadow: 0 0 10px 3px #000;
+  border-radius: 15px;
   min-height: 100px;
   margin: 20px 0;
-  background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/papier.jpg") ;
+  background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/vintage-1659117_1280.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
 }
-.btn{
-  padding: 5px;
-  margin-top: 5px;
+
+#quoteText{
+  font-size: 25px;
 }
 
+.buttons{
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 5px 15px 0 15px;
+  margin: 15px 0;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px #000;
+  background-color: rgba(231, 211, 153, 0.7);
+}
 
-.saveInk{
-  position: absolute;
-  z-index: 0;
-  left: -150px;
-  top: 0;
+.buttons:hover{
+  box-shadow: inset 1px 1px 3px #000;
+}
+
+.buttonsBox{
+  margin: 15px 0;
+}
+
+.coded{
+  margin-top: 10px;
 }

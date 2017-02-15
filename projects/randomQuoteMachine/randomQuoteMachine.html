@@ -18,62 +18,77 @@
   </head>
   <body>
 
+
     <div class="container-fluid theBox">
-  <div class="container">
-  <div class="row">
-    <div class="col-xs-1 col-md-2 " ></div>
-    <div class="col-xs-10 col-md-8 text-center titleBox">
-      <h1>Random Quote Machine</h1>
-    </div>
-  </div><!-- end row title -->
+
+      <div class="container">
 
 
-    <div class="row">
-      <div class="col-xs-1 col-md-2 "></div>
+      <div class="row">
 
-       <div class="col-xs-10 col-md-8 quoteBox">
+        <div class="col-xs-2 col-md-2 " ></div>
+        <div class="col-xs-8 col-md-8 text-center titleBox">
+          <h1>Random Quote Machine</h1>
+        </div>
 
-
-         <div class="row">
-
-           <div class="col-xs-1 col-md-2"></div>
-
-           <div  class="col-xs- 10 col-md-8 text-center">
-             <blockquote>
-               <i class="fa fa-quote-left fa-2x fa-pull-left" aria-hidden="true"></i>
-               <p id="quoteText">Don't try creating yourself, just start creating youself.</p>
-               <footer class="text-right"><cite id="quoteAutor">Dany Weis</cite></footer>
-             </blockquote>
-           </div>
-         <div class="col-xs-1 col-md-2 ink"></div>
-         </div><!-- end row quote -->
-         <div class="row">
-           <div id="autor" class="col-xs-8 col-md-8"></div>
-         </div>
+      </div><!-- end row title -->
 
 
-       </div><!-- end quoteBox -->
-    </div><!-- end row quoteBox -->
+        <div class="row">
+          
+          <div class="col-xs-2 col-md-2 "></div>
+
+           <div class="col-xs-8 col-md-8 quoteBox" id="quoteBox">
 
 
+             <div class="row">
 
-    <div class="row">
-      <div class="col-xs-2 col-md-2"></div>
-           <div class="col-xs-4 col-md-4 text-center">
+               <div class="col-xs-1 col-md-1"></div>
 
-             <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-show-count="false"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-           </div>
+               <div  class="col-xs-8 col-md-8 text-center">
 
-           <div class="col-xs-4 col-md-4 text-center">
-           <button onclick="newQuote()" id="getQuote" class="btn btn-primary btn-sm" >Random Quote</button>
-           </div>
+                 <blockquote>
+                   <i class="fa fa-quote-left fa-2x fa-pull-left" aria-hidden="true"></i>
+                   <p id="quoteText" class="twitter-tweet"></p>
+                   <footer class="text-right"><cite id="quoteAutor"></cite></footer>
+                 </blockquote>
 
-         </div><!-- end row buttons-->
+               </div>
+             <div class="col-xs-3 col-md-3 ink"></div>
+             </div><!-- end row quote -->
 
-    <div class="saveInk">
-    <img src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/ink-drop.png" alt="drop of ink" /></div>
-</div><!-- end container -->
-</div><!-- end container-fluid -->
+
+             <div class="row">
+               <div id="autor" class="col-xs-8 col-md-8"></div>
+             </div>
+
+             <div class="row">
+
+               <div class="col-xs-6 col-md-6 text-center buttonsBox">
+                 <a  id="tweetIt" class="buttons"><i class="fa fa-twitter" aria-hidden="true"></i>tweet</a>
+               </div>
+
+               <div class="col-xs-6 col-md-6 text-center buttonsBox">
+                 <a onclick="newQuote()" onclick="" class="buttons" id="getQuote" >Random Quote</a>
+               </div>
+
+
+             </div><!-- end row buttons-->
+
+
+               <div class="row coded">
+          <div class="col-xs-12 col-md-12 text-center">
+            <p><i class="fa fa-code" aria-hidden="true"></i> by Dany Weis</p>
+          </div>
+        </div>
+
+
+           </div><!-- end quoteBox -->
+        </div><!-- end row quoteBox -->
+
+
+    </div><!-- end container -->
+    </div><!-- end container-fluid -->
 
 <!-- JavaScript -->
 
