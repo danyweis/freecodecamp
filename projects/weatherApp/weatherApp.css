@@ -1,0 +1,31 @@
+* {
+  font-family: "Indie Flower", cursive;
+  color: #fff;
+}
+
+.time {
+  min-height: 10vh;
+}
+
+.app {
+  background: #333;
+  min-height: 100vh;
+}
+
+.top {
+  min-height: 25vh;
+}
+
+.middle {
+  min-height: 30vh;
+}
+
+.bottom {
+  min-height: 25vh;
+}
+
+.footer {
+  z-index: 50;
+  background: blue;
+  min-height: 10vh;
+}
