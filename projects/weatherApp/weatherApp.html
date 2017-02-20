@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- jQuery library -->
-    <script src="jquery-3.1.1.min.js"></script>
+    <!--script src="jquery-3.1.1.min.js"></script-->
 
 
     <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
 
-    <!--script src="https://use.fontawesome.com/8c14f362f7.js"></script-->
+    <script src="https://use.fontawesome.com/8c14f362f7.js"></script>
 
     <link rel="stylesheet" href="weatherApp.css">
 
@@ -21,7 +21,7 @@
   <body>
 
 
-<div class="container app">
+<div class="container-fluid app">
   <div class="row time">
     <div class="col-lg-12" id="time">
       <h5 class="text-right">10:20pm</h5>
@@ -30,48 +30,34 @@
 
   <div class="row top">
     <div class="col-lg-12 text-center">
-      <h1><span id="city"></span>, <span id="country_code"></span></h1>
+      <h1><span id="city">Bangkok</span>, <span id="country_code">TH</span></h1>
+      <span id="state">Siam</span>, in the time-zone: <span id="timeZone"></span>
     </div>
   </div>
 
 
 
   <div class="row middle ">
-    <div id="temp" class="col-lg-12 text-center">
-      <h1> 17 &deg C / <a href="">F</a></h1>
+    <div class="col-lg-12 text-center">
+      <h1><span id="temp">35</span>&deg<a href="" onclick="" id="btnTemp">C</a></h1>
+       todys min <i class="fa fa-thermometer-empty" aria-hidden="true"></i> : <span id="minTemp">25</span>&deg<span class="tempIcon">C</span> & max <i class="fa fa-thermometer-full" aria-hidden="true"></i> : <span id="maxTemp">45</span>&deg<span class="tempIcon">C</span>
     </div>
   </div>
 
   <div class="row bottom text-center" >
     <div id="logo" class="col-lg-12 message">
+      <img src="" alt="">
     </div>
   </div>
 
   <div class="row footer text-center">
-    <span id="postal"></span>
-    <span id="state"></span>
-<span id="latitude"></span>
-    <span id="longitude"></span>
-    <!--div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="myLocation">
-      this
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="myTemp">
-    is
-    </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="myLogo">
-    a test
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="myTime">
-    a time
-  </div-->
-  <!--div class="">
-    <a href="https://www.yahoo.com/?ilc=401" target="_blank"> <img src="https://poweredby.yahoo.com/white.png" width="134" height="29"/> </a>
-  </div-->
+
+
   </div>
 
 </div><!-- end container -->
 
-<script src="jQuery.js">
+<script src="weatherApp.js">
 
 </script>
 </body>

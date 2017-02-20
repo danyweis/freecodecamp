@@ -9,20 +9,11 @@
 	],
 "creatorBuild": "25504",
 "files": {
-	"\/jquery-3.1.1.min.js": {
+	"\/weatherApp-min.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/jquery-3.1.1.min-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/jQuery.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/jQuery-min.js",
+		"oAP": "\/weatherApp-min-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0

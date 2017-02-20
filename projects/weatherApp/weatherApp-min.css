@@ -1,32 +1,24 @@
 * {
   font-family: "Indie Flower", cursive;
-  color: #fff;
-
-}
+  color: #fff; }
 
 .time {
-  min-height: 5vh;
-}
+  min-height: 5vh; }
 
 .app {
   background: #333;
-  min-height: 100vh;
-}
+  min-height: 100vh; }
 
 .top {
-  min-height: 20vh;
-}
+  min-height: 20vh; }
 
 .middle {
-  min-height: 25vh;
-}
+  min-height: 25vh; }
 
 .bottom {
-  min-height: 20vh;
-}
+  min-height: 20vh; }
 
 .footer {
   z-index: 50;
   background: blue;
-  min-height: 30vh;
-}
+  min-height: 30vh; }
