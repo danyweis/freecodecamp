@@ -60,11 +60,11 @@ var temperatureMin = document.getElementById('minTemp');
 function weather (data){
   timezone.innerHTML = data.timezone;
   //console.log(data.timezone);
-  temperature.innerHTML = data.currently.temperature;
+  temperature.innerHTML = Math.round(data.currently.temperature);
   //console.log(data.currently.temperature);
-  temperatureMax.innerHTML = data.daily.data[0].temperatureMax;
+  temperatureMax.innerHTML = Math.round(data.daily.data[0].temperatureMax);
   //console.log(data.daily.data[0].temperatureMax);
-  temperatureMin.innerHTML = data.daily.data[0].temperatureMin;
+  temperatureMin.innerHTML = Math.round(data.daily.data[0].temperatureMin);
   //console.log(data.daily.data[0].temperatureMin);
   //humidity.innerHTML = data.currently.humidity;
   //console.log(data.currently.humidity);
@@ -73,8 +73,97 @@ function weather (data){
 
 // icon & background image
 console.log(data.currently.icon);
+change(data.currently.icon);
 }
 
+// function for icons and bg's
+
+function change(imgs) {
+var bg = document.getElementById("app");
+
+
+  if(imgs === "clear-day")
+{
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/clear-day.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "clear-night")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/clear-night.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "rain")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/rain.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "snow")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/snow.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "sleet")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/snow.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "wind")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/wind.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "fog")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/fog.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "cloudy")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/cloudy.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "partly-cloudy-day")
+  {
+    bg.style.background =  "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/partly-cloudy-day.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "partly-cloudy-night")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/partly-cloudy-night.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "hail")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/hail.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "thunderstorm")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/thunderstorm.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else if (imgs === "tornado")
+  {
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/tornado.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+  } else {
+
+  }
+}
 
  var script = document.createElement('script');
  	script.type = 'text/javascript';

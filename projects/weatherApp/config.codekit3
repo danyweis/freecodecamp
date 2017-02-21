@@ -9,6 +9,16 @@
 	],
 "creatorBuild": "25504",
 "files": {
+	"\/weatherApp-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/weatherApp-min-min.css",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/weatherApp-min.js": {
 		"ft": 64,
 		"mi": 1,
