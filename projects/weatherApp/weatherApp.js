@@ -1,9 +1,70 @@
+// I worked with OpenWeatherMap and to get the api with https I would have to paie but I did if you go in with https I go over a website to give me CORS https for my call else I go over the IP adress i did want to do it this way because the location with the IP never did get my real position so like this it works in both situations
 
- var urlStart = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=";
+// I did get the CORS on "https://cors-anywhere.herokuapp.com/" and I did this because of codepen
+
+// to create the URL
+ var urlStart = "";
  var key = "&appid=88ed677935f66ca8ba614806bb5b6618";
  var longi = "&lon=";
  var celsius = "&units=metric";
 
+
+
+
+// if you login with http
+
+if(window.location.protocol === 'http:'){
+  var urlStart = "http://api.openweathermap.org/data/2.5/weather?lat=";
+  //console.log(urlStart);
+
+function callIP() {
+
+  var theIP = new XMLHttpRequest();
+theIP.open('GET', 'http://ip-api.com/json', true);
+
+  theIP.onload = function () {
+     theIPData = JSON.parse(theIP.response);
+
+ getIPData(theIPData);
+ //console.log(theIPData);
+  };
+  theIP.send();
+
+};
+ callIP();
+
+
+  function getIPData(ipData){
+    var lat = ipData.lat;
+    var long = ipData.lon;
+
+    createURL(lat.toString(), long.toString());
+    //console.log(lat.toString() + "," + long.toString());
+  }
+
+  function createURL(latit, longit){
+  var theURL = urlStart + latit + longi + longit + key + celsius;
+  //console.log(theURL);
+  callData(theURL);
+  }
+function callData(address) {
+
+var theRequest = new XMLHttpRequest();
+
+theRequest.open('get', address, true);
+  theRequest.onload = function () {
+     var theData = JSON.parse(theRequest.response);
+
+  weather(theData);
+  console.log(theData);
+  };
+  theRequest.send();
+
+};
+
+} else if(window.location.protocol === 'https:'){
+
+  var urlStart = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=";
 
  var options = {
   enableHighAccuracy: true,
@@ -16,7 +77,7 @@ function success(pos) {
   var lat = crd.latitude;
   var long = crd.longitude;
   var acc = crd.accuracy;
-  console.log(lat + ", " + long + ", " + acc);
+  //console.log(lat + ", " + long + ", " + acc);
   createURL(lat, long);
 };
 
@@ -30,16 +91,11 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 
 function createURL(latit, longit){
   var theURL = urlStart + latit + longi + longit + key + celsius;
-  console.log(theURL);
+  //console.log(theURL);
   callData(theURL);
-}
-
-
+};
+};
 function callData(address) {
-
-
-  var request = new XMLHttpRequest();
-request.open('GET', address, true);
 
 var theRequest = new XMLHttpRequest();
 
@@ -52,402 +108,331 @@ theRequest.open('get', address, true);
   };
   theRequest.send();
 
-
 };
-/*
-var timezone = document.getElementById('timeZone');
-var temperature = document.getElementById('temp');
-var temperatureMax = document.getElementById('maxTemp');
-var temperatureMin = document.getElementById('minTemp');
-//var humidity = document.getElementById('');
-//var windSpeed = document.getElementById('');
 
-//var icon = document.getElementById('');
-*/
+var city = document.getElementById('city');
+var temperature = document.getElementById('temp');
+var country = document.getElementById('country');
+var temperatureMin = document.getElementById('minTemp');
+var humidity = document.getElementById('humidity');
+var windSpeed = document.getElementById('windSpeed');
+var icon = document.getElementById('logo');
+
 function weather (data){
-  //timezone.innerHTML = data.timezone;
-  console.log(data.name);
-  //temperature.innerHTML = Math.round(data.currently.temperature);
-  console.log(data.sys.country);
- // temperatureMax.innerHTML = Math.round(data.daily.data[0].temperatureMax);
- console.log(data.main.temp);
-  //temperatureMin.innerHTML = Math.round(data.daily.data[0].temperatureMin);
-  console.log(data.wind.speed);
-  //humidity.innerHTML = data.currently.humidity;
-  console.log(data.weather[0].id);
-  //windSpeed.innerHTML = data.currently.windSpeed;
-  console.log(data.weather[0].icon);
+  city.innerHTML = data.name;
+ // console.log(data.name);
+  country.innerHTML = data.sys.country;
+ // console.log(data.sys.country);
+  temperature.innerHTML = Math.round(data.main.temp);
+ // console.log(data.main.temp);
+  windSpeed.innerHTML = Math.round(data.wind.speed);
+ // console.log(data.wind.speed);
+  humidity.innerHTML = data.main.humidity;
+  //console.log(data.main.humidity);
+  //console.log(data.weather[0].icon);
 
 // icon & background image
-//console.log(data.currently.icon);
-//change(data.weather[0].icon, data.weather[0].id);
-}
+change(data.weather[0].icon, data.weather[0].id);
+
+};
 
 // function for icons and bg's
 
 function change(imgs, more) {
 var bg = document.getElementById("app");
   if (more === 900) {// tornado
+  // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/900Tornado.jpg')no-repeat center";
 
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/900tornado.png";
 
   } else if (more === 901) {// tropical storm
+  // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/901TropicalStorm.jpg')no-repeat center";
 
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/901-902-905wind.png";
 
   } else if (more === 902) {// hurricane
+  // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/902Hurricane.jpg')no-repeat center";
 
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+     icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/901-902-905wind.png";
 
   } else if (more === 903) {// cold
+  // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/903Cold.jpg')no-repeat center";
 
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/903cold1.png";
 
   } else if (more === 904) {// hot
+  // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/904Hot.jpg')no-repeat center";
 
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/904hot.png";
 
   } else if (more === 905) {// windy
+  // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/dandelion-463928_1920.jpg')no-repeat center";
 
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+     icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/901-902-905wind.png";
 
   } else if (more === 906) {// hail
-
-
-  } else{
-
-
-  if(imgs === "01d") {// clear sky day
-
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/clear-day.jpg')no-repeat center";
+  // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/906Hail.jpg')no-repeat center";
 
     bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/906hail.png";
+
+  } else if(imgs === "01d") {// clear sky day
+  // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/01dClearSky.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/01clear-day.png";
 
   } else if (imgs === "01n") {// clear sky night
-
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/clear-night.jpg')no-repeat center";
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/01nClearSky.jpg')no-repeat center";
 
     bg.style.backgroundSize = "cover";
 
-  } /***************************/
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/01clear-night.png";
+
+  }
 
     else if (imgs === "02d") {// few clouds day
 
-     bg.style.background =  "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/partly-cloudy-day.jpg')no-repeat center";
+     // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/02dFewCouds.jpg')no-repeat center";
 
     bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/02partly-cloudy-day.png";
 
   } else if (imgs === "02n") {// few clouds night
 
-   bg.style.background = "url('')no-repeat center";
+   // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/02nFewClouds.jpg')no-repeat center";
 
     bg.style.backgroundSize = "cover";
 
-  } /***************************/
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/02partly-cloudy-night.png";
+
+  }
 
     else if (imgs === "03d") {// scattered clouds day
-
-    bg.style.background = "url('')no-repeat center";
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/03dScatteredClouds.jpg')no-repeat center";
 
     bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/03cloudy.png";
+
 
   } else if (imgs === "03n") {// scattered clouds night
 
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/partly-cloudy-night.jpg')no-repeat center";
+  // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/03nScatteredClouds.jpg')no-repeat center";
 
     bg.style.backgroundSize = "cover";
 
-  } /***************************/
-
-    else if (imgs === "04d") {// scattered clouds night
-
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/cloudy.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  }else if (imgs === "04n") {// scattered clouds night
-
-    bg.style.background = "url('')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } /***************************/
-
-    else if (imgs === "sleet") {// scattered clouds day
-
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/snow.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "wind")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/wind.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "fog")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/fog.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "")
-  {
-    bg.style.background = "url('')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "rain")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/rain.jpg')no-repeat center";
-
-
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "snow")
-  {
-     bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/snow.jpg')no-repeat center";
-
-
-
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "hail")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/hail.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "thunderstorm")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/thunderstorm.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "tornado")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/tornado.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else {
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/03cloudy.png";
 
   }
+
+    else if (imgs === "04d") {// broken clouds day
+
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/04dBrokenClouds.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/04broken-clouds.png";
+
+  }else if (imgs === "04n") {// broken clouds night
+
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/04nBrokenClouds.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/04broken-clouds.png";
+
   }
-}
 
+  else if (imgs === "09d") {// shower rain day
 
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/09dShowerRain.jpg')no-repeat center";
 
+    bg.style.backgroundSize = "cover";
 
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/09shower-rain.png";
 
+  } else if (imgs === "09n") {// shower rain night
 
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/09nShowerRain.jpg')no-repeat left";
 
+    bg.style.backgroundSize = "cover";
 
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/09shower-rain.png";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    loc.innerHTML =  "Geolocation is not supported by this browser.";
   }
-  };
+  else if (imgs === "10d") {// rain day
+
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/10dRain.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/10sun-rain.png";
+
+  } else if (imgs === "10n") {// rain night
+
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/10nRain.jpg')no-repeat right";
+
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/10moon-rain.png";
+
+  }
+  else if (imgs === "11d") {// thunderstorm day
+
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/11dThunderstorm.jpg')no-repeat right";
+
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/11thunderstorm.png";
+
+  } else if (imgs === "11n") {// thunderstorm night
+
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/11nThunderstorm.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/11thunderstorm.png";
+
+  }
+
+else if (imgs === "13d") {// snow day
+
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/13dSnow.jpg')no-repeat center";
+
+    bg.style.backgroundSize = "cover";
+
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/13-snow.png";
 
 
-function showPosition(position) {
-var lat = position.coords.latitude;
-var long = position.coords.longitude;
-console.log(lat + "," + long);
+  } else if (imgs === "13n") {// snow night
 
- };
- getLocation(); // get the location on load
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/13nSnow.jpg')no-repeat center";
 
+    bg.style.backgroundSize = "cover";
 
-*/
-/*
-var country_code = document.getElementById('country_code');
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/13-snow.png";
 
-var city = document.getElementById('city');
-var state = document.getElementById('state');
+  }
 
-var theData;
-function callback(data)
-{
-  country_code.innerHTML = data.country_code;
-  state.innerHTML = data.state;
-  city.innerHTML = data.city;
+ else if (imgs === "50d") {// mist day
 
-console.log(data.country_name);
-  console.log(data.city);
-   console.log(data.state);
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/50dMist.jpg')no-repeat center";
 
-  createURL(data.latitude.toString(), data.longitude.toString());
- };
+    bg.style.backgroundSize = "cover";
 
- function createURL(x, y) {
-  var theURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/405ddb43858fde92eea9e80833bbcf06/" + x + "," + y + "?units=si";
-   console.log(theURL);
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/50sun-fog.png";
 
-   callData(theURL);
- };
+  }
+    else if (imgs === "50n") {// mist night
 
+    // background :
+    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/50nMist.jpg')no-repeat center";
 
+    bg.style.backgroundSize = "cover";
 
+    // icon :
+    icon.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/50moon-fog.png";
 
-function callData(address) {
+  } ;
+  } ;
 
+//********************* get the time **********************/
 
-  var request = new XMLHttpRequest();
-request.open('GET', address, true);
+var getTime = setInterval(theTime, 1000);
+function theTime(){
+  var d = new Date();
 
-var theRequest = new XMLHttpRequest();
-
-theRequest.open('get', address, true);
-  theRequest.onload = function () {
-     theData = JSON.parse(theRequest.response);
-
-  weather(theData);
-
-  };
-  theRequest.send();
-
-
+  var time = d.toLocaleTimeString();
+  document.getElementById('time').innerHTML = time;
 };
+theTime();
 
-var timezone = document.getElementById('timeZone');
-var temperature = document.getElementById('temp');
-var temperatureMax = document.getElementById('maxTemp');
-var temperatureMin = document.getElementById('minTemp');
-//var humidity = document.getElementById('');
-//var windSpeed = document.getElementById('');
+//********************* change from C to F **********************//
 
-//var icon = document.getElementById('');
+function changeTemp() {
+  var idName = document.getElementById('btnTemp');
+  var temper = document.getElementById('temp');
+  var windS = document.getElementById('windSpeed');
+  var speed = document.getElementById('speed');
+  if(idName.innerHTML === "C") {
+    // Temperature
+    idName.innerHTML = "F";
+    temper.innerHTML = Math.round(Number(temper.innerHTML) * 9/5 + 32);
 
-function weather (data){
-  timezone.innerHTML = data.timezone;
-  //console.log(data.timezone);
-  temperature.innerHTML = Math.round(data.currently.temperature);
-  //console.log(data.currently.temperature);
-  temperatureMax.innerHTML = Math.round(data.daily.data[0].temperatureMax);
-  //console.log(data.daily.data[0].temperatureMax);
-  temperatureMin.innerHTML = Math.round(data.daily.data[0].temperatureMin);
-  //console.log(data.daily.data[0].temperatureMin);
-  //humidity.innerHTML = data.currently.humidity;
-  //console.log(data.currently.humidity);
-  //windSpeed.innerHTML = data.currently.windSpeed;
-  //console.log(data.currently.windSpeed);
-
-// icon & background image
-console.log(data.currently.icon);
-change(data.currently.icon);
-}
-
-// function for icons and bg's
-
-function change(imgs) {
-var bg = document.getElementById("app");
-
-
-  if(imgs === "clear-day")
-{
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/clear-day.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "clear-night")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/clear-night.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "rain")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/rain.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "snow")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/snow.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "sleet")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/snow.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "wind")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/wind.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "fog")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/fog.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "cloudy")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/cloudy.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "partly-cloudy-day")
-  {
-    bg.style.background =  "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/partly-cloudy-day.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "partly-cloudy-night")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/partly-cloudy-night.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "hail")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/hail.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "thunderstorm")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/thunderstorm.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
-
-  } else if (imgs === "tornado")
-  {
-    bg.style.background = "url('https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/bg/tornado.jpg')no-repeat center";
-
-    bg.style.backgroundSize = "cover";
+    // Windspeed
+    speed.innerHTML = "mph";
+    windS.innerHTML = Number(windS.innerHTML) * 2.27;
 
   } else {
+    idName.innerHTML = "C";
+    temper.innerHTML = Math.round((Number(temper.innerHTML) - 32) * 5/9);
 
-  }
-}
-
- var script = document.createElement('script');
- 	script.type = 'text/javascript';
- 	script.src = 'https://geoip-db.com/jsonp';
- 	var h = document.getElementsByTagName('script')[0];
- 	h.parentNode.insertBefore(script, h);
-*/
+    // Windspeed
+    speed.innerHTML = "m/sec";
+    windS.innerHTML = Number(windS.innerHTML) / 2.27;
+  };
+};

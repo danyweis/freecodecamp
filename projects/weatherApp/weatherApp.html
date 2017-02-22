@@ -21,41 +21,42 @@
   <body>
 
 
-<div id="app" class="container-fluid app">
-  <div class="row time">
-    <div class="col-lg-12" id="time">
-      <h5 class="text-right">10:20pm</h5>
-    </div>
-  </div>
+    <div id="app" class="container-fluid app">
 
-  <div class="row top">
-    <div class="col-lg-12 text-center">
-      <h1><span id="city">Bangkok</span>, <span id="country_code">TH</span></h1>
-      <span id="state">Siam</span>, in the time-zone: <span id="timeZone"></span>
-    </div>
-  </div>
+      <div class="boxDeFlex">
 
+        <div class="top imp">
+          <span id="city">Bangkok</span>, <span id="country">TH</span><br /><h5 id="time">10:20pm</h5>
+        </div> <!-- end top -->
 
+        <div class="middle">
+          <div class="imp">
+          <span id="temp">35</span> &deg<span><a onclick="changeTemp()" id="btnTemp">C</a></span>
+          <br />
+       </div>
 
-  <div class="row middle ">
-    <div class="col-lg-12 text-center">
-      <h1><span id="temp">35</span>&deg<a href="" onclick="" id="btnTemp">C</a></h1>
-       todys min <i class="fa fa-thermometer-empty" aria-hidden="true"></i> : <span id="minTemp">25</span>&deg<span class="tempIcon">C</span> & max <i class="fa fa-thermometer-full" aria-hidden="true"></i> : <span id="maxTemp">45</span>&deg<span class="tempIcon">C</span>
-    </div>
-  </div>
+        <div>
+          Wind speed : <span id="windSpeed">25</span><span id="speed"> m/sec</span><br />& humidity : <span id="humidity">45</span> %
+        </div>
+      </div> <!-- end middle-->
 
-  <div class="row bottom text-center" >
-    <div id="logo" class="col-lg-12 message">
-      <img src="" alt="">
-    </div>
-  </div>
+        <div class="bottom bgc">
+          <img class="img-responsive" id="logo" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/dontKnow.png" alt="" />
+        </div><!-- end bottom-->
 
-  <!--div id="footer" class="row footer text-center">
+        <footer class="">
+          <div class="">
 
+          Data from :<br><a href="http://openweathermap.org/" target="-blank"><img class="owm img-responsive" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/weather/icon/openweathermap.png" alt="" /></a>
+          </div>
+          <div class="">
 
-  </div>-->
+          my portfolio :<br><a href="http://www.danyweis.com" target="-blank" ><img class="dw" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/danyweisLogo.png" alt="" /></a>
+        </div>
+        </footer>
+      </div> <!-- end boxFlex-->
 
-</div><!-- end container -->
+    </div><!-- end container -->
 
 <script src="weatherApp.js">
 

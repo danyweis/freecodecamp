@@ -1,20 +1,36 @@
-* {
+body {
   font-family: "Indie Flower", cursive;
   color: #fff;
-
 }
 
-.time {
-  min-height: 5vh;
-}
 
 .app {
   background: #333;
   min-height: 100vh;
+  text-align: center;
+  padding-top: 2vh;
+  cursor: default;
+}
+
+.boxDeFlex {
+  margin: auto;
+  min-width: 170px;
+  width: 50%;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#btnTemp {
+  color: #c61800;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .top {
-  min-height: 20vh;
+  min-height: 25vh;
 }
 
 .middle {
@@ -25,8 +41,23 @@
   min-height: 20vh;
 }
 
-.footer {
-  z-index: 50;
-  background: blue;
-  min-height: 30vh;
+.imp {
+  font-size: 200%;
+}
+
+footer {
+  height: 15vh;
+  padding-top: 1vh;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+
+.owm {
+  max-height: 3vh;
+  margin: auto;
+}
+.dw {
+  max-height: 5vh;
 }
