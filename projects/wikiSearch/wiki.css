@@ -1,0 +1,101 @@
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", serif;
+}
+
+h4, h5, h6, p, a {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  height: 100vh;
+  background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/Wiki/wikiBG.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.imgWiki {
+  height: 50px;
+  position: fixed;
+}
+
+#title {
+  height: 25vh;
+  min-height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title h1 {
+  font-size: 50px;
+  margin: 0;
+  color: #fff;
+}
+
+#globe {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+}
+
+#wikiGlobe {
+  height: 50vh;
+  width: auto;
+}
+
+#footer {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#textBox {
+  height: 24px;
+  width: 200px;
+  font-size: 20px;
+}
+
+#submitBTN {
+  background-color: #fff;
+  height: 24px;
+  padding: 0 5px;
+  text-align: center;
+  border: 2px solid #333;
+  border-radius: 12px;
+  font-size: 20px;
+  margin-left: 10px;
+  box-shadow: 3px 3px 10px #000;
+}
+
+#submitBTN:hover {
+  box-shadow: 3px 3px 10px #333 inset;
+}
+
+#theTitle {
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+}
+
+#theTitle:hover {
+  transform: translateY(25vh);
+  font-size: 0;
+}
+
+#wikiGlobe {
+  transition-property: all;
+  transition-duration: 1s;
+  transition-delay: 500ms;
+  transition-timing-function: linear;
+}
+
+#wikiGlobe:hover {
+  transform: translateY(-100vh);
+}
