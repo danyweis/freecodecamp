@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>WikiSearch</title>
-  </head>
-  <body>
+</head>
 
-    <div id="app">
+    <body>
+
+        <div id="app">
+       
+            <img class="imgWiki" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/Wiki/Wikipedia1.png" alt="" />
+       
+            <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" id="randomBTN" class="btns"><i class="fa fa-question-circle" aria-hidden="true"></i> Random</a>
+       
+            <div id="footer">
+                <input id="textBox" type="text" placeholder="You want to Wiki..." onkeypress="keyPress(event)" />
+        
+                <a id="submitBTN" class="btns" onclick="inputText()"><i class="fa fa-search" aria-hidden="true"></i> Wiki</a>
+        
+                <a id="closeBTN" class="btns" onclick="closeSearch()"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+       
+        
+            </div><!-- end footer -->
+
+            <div id="content">
+
+                <div id="title">
+                    <h1 id="theTitle">Wiki it...!</h1>
+                </div><!-- end title-->
+       
+                <div id="globe">
+                    <img id="wikiGlobe" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/Wiki/wikilogo.png" alt="" />
+                </div><!-- end globe -->
+
+            </div><!-- end content -->
       
-      <!-- logo Wikipedia -->
-      <img class="imgWiki" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/Wiki/Wikipedia1.png" alt="" />
+        </div><!-- end app -->
 
-      <div id="title">
-        <h1 id="theTitle">Wiki it...!</h1>
-      </div> <!-- end title -->
+    </body>
 
-      <div id="globe">
-        <img id="wikiGlobe" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/Wiki/wikilogo.png" alt="" />
-      </div> <!-- end globe -->
-
-      <div id="footer">
-        <input id="textBox" type="text" required placeholder="Wiki search..." />
-        <a id="submitBTN"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
-      </div> <!-- end footer -->
-
-    </div> <!-- end app -->
-
-  </body>
 </html>
