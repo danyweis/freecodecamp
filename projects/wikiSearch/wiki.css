@@ -69,24 +69,26 @@ body {
 
 #textBox {
   height: 22px;
-  width: 180px;
+  width: 170px;
   font-size: 18px;
+  border-radius: 12px;
+  padding-left: 10px;
 }
 
 .btns {
-  background-color: #fff;
+  background-color: #ffffff;
   height: 24px;
   padding: 0 5px;
   text-align: center;
-  border: 2px solid #333;
   border-radius: 12px;
   font-size: 20px;
   margin-left: 10px;
-  box-shadow: 3px 3px 10px #000;
+  box-shadow: 3px 3px 10px #333 inset;
   color: #333;
+  cursor: pointer;
 }
 .btns:hover {
-  box-shadow: 3px 3px 10px #333 inset;
+  box-shadow: 3px 3px 3px #333 inset;
 }
 
 #content {

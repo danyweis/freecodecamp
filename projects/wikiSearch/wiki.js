@@ -1,3 +1,7 @@
+var wikiIt = '<div id="title">' + '<h1 id="theTitle">'+ 'Wiki it...!'+ '</h1>'+ '</div>'+ '<div id="globe">'+ '<img id="wikiGlobe" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/Wiki/wikilogo.png" alt="" />' + '</div>';
+
+document.getElementById("content").innerHTML = wikiIt;
+
 // send result with the enter key (13)
 function keyPress (event){
   var code = event.which || event.keyCode;
@@ -54,7 +58,7 @@ function useData (theData) {
 };
 
 // I send the boxes in the content ID and creat the close button
-function sendText(theBox){ 
+function sendText(theBox) { 
    
   document.getElementById("content").appendChild(theBox); 
   document.getElementById("closeBTN").style.display = "block";
@@ -62,7 +66,7 @@ function sendText(theBox){
 };
 
 // put the beginning screen back
-function closeSearch(){
-  document.getElementById("content").innerHTML = '<div id="title">' + '<h1 id="theTitle">'+ 'Wiki it...!'+ '</h1>'+ '</div>'+ '<div id="globe">'+ '<img id="wikiGlobe" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/Wiki/wikilogo.png" alt="" />' + '</div>';
+function closeSearch() {
+  document.getElementById("content").innerHTML = wikiIt;
   document.getElementById("closeBTN").style.display = "none";
 }
