@@ -1,30 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>WikiSearch</title>
-  </head>
-  <body>
+</head>
 
-    <div id="app">
-      
-      <!-- logo Wikipedia -->
-      <img class="imgWiki" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/Wiki/Wikipedia1.png" alt="" />
+    <body>
 
-      <div id="title">
-        <h1 id="theTitle">Wiki it...!</h1>
-      </div> <!-- end title -->
+        <div id="app">
+       
+            <img class="imgWiki" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/Wiki/Wikipedia1.png" alt="" />
+       
+            <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" id="randomBTN" class="btns"><i class="fa fa-question-circle" aria-hidden="true"></i> Random</a>
+       
+            <div id="footer">
+                <input id="textBox" type="text" placeholder="You want to Wiki..." onkeypress="keyPress(event)" />
+                <datalist id="exemple">
+                    <option value="Hello World"></option>
+                    <option value="Code"></option>
+                    <option value="Programming"></option>
+                    <option value="Computer"></option>
+                    <option value="Web"></option>
+                    <option value="JavaScript"></option>
+                    <option value="Browser"></option>
+                    <option value="Keybord"></option>
+                    <option value="USB"></option>
+                    <option value="Facebook"></option>
+                    <option value="Google"></option>
+                    <option value="IP address"></option>
+                    <option value="King"></option>
+                    <option value="HTML"></option>
+                    <option value="List item"></option>
+                    <option value="Microsoft"></option>
+                    <option value="Nano"></option>
+                    <option value="Network"></option>
+                    <option value="Quantum"></option>
+                    <option value="Video Game"></option>
+                    <option value="Xbox"></option>
+                    <option value="Youtube"></option>
+                    <option value="Yahoo"></option>
+                    <option value="Zip Code"></option>
+                    <option value="Alpha"></option>
+                </datalist>
+        
+                <a id="submitBTN" class="btns" onclick="inputText()"><i class="fa fa-search" aria-hidden="true"></i> Wiki</a>
+        
+                <a id="closeBTN" class="btns" onclick="closeSearch()"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+       
+        
+            </div><!-- end footer -->
 
-      <div id="globe">
-        <img id="wikiGlobe" src="https://raw.githubusercontent.com/danyweis/pics4codepen/master/Wiki/wikilogo.png" alt="" />
-      </div> <!-- end globe -->
+            <div id="content">
 
+<<<<<<< HEAD
       <div id="footer">
         <input id="textBox" type="text" required placeholder="Wiki search..." />
         <a id="submitBTN"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
       </div> <!-- end footer -->
       <div id="contenu"></div>
     </div> <!-- end app -->
+=======
+            </div><!-- end content -->
+      
+        </div><!-- end app -->
 
-  </body>
+    </body>
+>>>>>>> 3c2e9c2aca74ba33a5513a38c85eb8d5cffad4da
+
 </html>
