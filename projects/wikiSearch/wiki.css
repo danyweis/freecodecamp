@@ -99,3 +99,29 @@ body {
 #wikiGlobe:hover {
   transform: translateY(-100vh);
 }
+
+#title, #globe {
+  display: none;
+}
+
+.wikiArticle {
+  display: block;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-decoration: none;
+  height: 100px;
+  background-color: #CDD3D3;
+  border: 1px solid #000;
+  box-shadow: 3px 3px 5px #656565;
+  padding: 5px;
+}
+.wikiArticle:hover {
+  border-left: 3px solid red;
+  width: calc(90% - 1.5px);
+  box-shadow: 3px 3px 5px #656565 inset;
+}
+
+.wikiArticle > h2 {
+  margin: 0;
+}
