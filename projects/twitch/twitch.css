@@ -1,0 +1,26 @@
+body{
+	margin: 0px;
+}
+#page {
+  min-height: 100vh;
+  background-color: #6445A2;
+}
+
+.appBox{
+	max-width: 960px;
+	min-width: 320px;
+	margin: auto;
+}
+
+.navFlexBox {
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  background-color: #381975;
+  color: #A990D7;
+}
+#contenu{
+	background-color: #4E2D92;
+	padding: 20px;
+	/*height: 500px;*/
+}
