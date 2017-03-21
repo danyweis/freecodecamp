@@ -19,6 +19,15 @@
 		"oF": 0,
 		"oS": 0
 		},
+	"\/twitch-min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/twitch-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/twitch.css": {
 		"aP": 1,
 		"bl": 0,
