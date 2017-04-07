@@ -3,49 +3,49 @@ var arrCree = [];
 var arrOn = [];
 var arrOff = [];
 
-// call the API
+// var channelName = arrChannelElt[i];
+// https://wind-bow.glitch.me/twitch-api/users/' + channelName
+// var streamName = arrChannelElt[j];
+// https://wind-bow.glitch.me/twitch-api/streams/' + streamName
+
 function ajaxGet(url, callback) {
     var req = new XMLHttpRequest();
     req.open("GET", url);
-    req.addEventListener("load", function () {
+    req.addEventListener("load", function() {
         if (req.status >= 200 && req.status < 400) {
             callback(req.responseText);
         } else {
             console.error(req.status + " " + req.statusText + " " + url);
         }
     });
-    req.addEventListener("error", function () {
+    req.addEventListener("error", function() {
         console.error("Error with the URL " + url);
     });
     req.send(null);
+
 }
-
-
-// call one by one and push in an array
+//var test = "";
 for (i = 0; i < arrChannelElt.length; i++) {
     var channelName = arrChannelElt[i];
-    ajaxGet("https://wind-bow.glitch.me/twitch-api/users/" + channelName, function (channelUser) {
+    ajaxGet("https://wind-bow.glitch.me/twitch-api/users/" + channelName, function(channelUser) {
         var player = JSON.parse(channelUser);
-        arrCree.push(player);
-        createApp(player);
+        //console.log(player);
+        //return player;
     });
-    ajaxGet("https://wind-bow.glitch.me/twitch-api/streams/" + channelName, function (channelStreams) {
+    ajaxGet("https://wind-bow.glitch.me/twitch-api/streams/" + channelName, function(channelStreams) {
         var streamer = JSON.parse(channelStreams);
-        arrOn.push(streamer);
-        //createApp(streamer);
+        //console.log(streamer);
+        return streamer;
     });
-    //turne();
+    //console.log(streamer);
+    //console.log(player);
+    createApp();
+
 }
 
-//console.log(arrCree);
-//console.log(arrOn);
-/*function turne() {
-    for (var j = 0; j < arrCree.length; j++) {
-        //if (arrCree)
-        console.log(arrCree[j]);
-    }
-}*/
 
+
+//console.log(arrCree[1]);
 
 function createApp(player, steamer) {
     console.log(player);
@@ -126,7 +126,8 @@ function createApp(player, steamer) {
 }
 
 
-/* document.getElementById("all").addEventListener("click", function() {
+/*
+document.getElementById("all").addEventListener("click", function() {
     all();
 });
 
