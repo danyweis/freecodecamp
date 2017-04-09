@@ -18,9 +18,12 @@ function ajaxGet(url, callback) {
 }
 
 
+var arrOffline = [];
+var channelName = "";
+
 // CALL ONE BY ONE 
 for (i = 0; i < arrChannelElt.length; i++) {
-    var channelName = arrChannelElt[i];
+    channelName = arrChannelElt[i];
     //console.log(channelName);
 
     /*
@@ -63,8 +66,9 @@ for (i = 0; i < arrChannelElt.length; i++) {
     ajaxGet("https://wind-bow.glitch.me/twitch-api/streams/" + channelName, function (channelStreams) {
         var streamer = JSON.parse(channelStreams);
         if (streamer.stream !== null) {
-            //console.log(channelName);
+            console.log(channelStreams);
 
+            arrOffline.push(streamer.stream.channel.display_name);
             var responseBoxElt = document.createElement("div");
             responseBoxElt.style.height = "100px";
             responseBoxElt.style.marginTop = "10px";
@@ -91,15 +95,36 @@ for (i = 0; i < arrChannelElt.length; i++) {
 
 
 
-            responseChannelElt.textContent = streamer.stream.channel.display_name;
-            responseChannelElt.href = streamer.stream.channel.url;
-            responseImgElt.src = streamer.stream.channel.logo;
+            //responseChannelElt.textContent = streamer.stream.channel.display_name;
+            //responseChannelElt.href = streamer.stream.channel.url;
+            //responseImgElt.src = streamer.stream.channel.logo;
+
+            // console.log(streamer.stream);
+        }
+
+        /*else {
+
+                   // IF NOT ONLINE CALL USER
+
+                   arrOffline.push(channelName);
 
 
-        } else {
+               }
+               responseNameElt.appendChild(responseChannelElt);
+               responseBoxElt.appendChild(responseImgElt);
+               responseBoxElt.appendChild(responseNameElt);
+               document.getElementById("contenu").appendChild(responseBoxElt);*/
+    });
 
-            // IF NOT ONLINE CALL USER
-            ajaxGet("https://wind-bow.glitch.me/twitch-api/users/" + channelName, function (channelUser) {
+    //console.log(channelName);
+}
+
+
+
+/*
+
+
+ ajaxGet("https://wind-bow.glitch.me/twitch-api/users/" + channelName, function (channelUser) {
 
 
                 var player = JSON.parse(channelUser);
@@ -135,14 +160,11 @@ for (i = 0; i < arrChannelElt.length; i++) {
 
 
 
-        }
-        responseNameElt.appendChild(responseChannelElt);
-        responseBoxElt.appendChild(responseImgElt);
-        responseBoxElt.appendChild(responseNameElt);
-        document.getElementById("contenu").appendChild(responseBoxElt);
-    });
+*/
 
-}
+
+
+
 /*
 function createApp(player) {
     var responseBoxElt = document.createElement("div");
