@@ -21,12 +21,12 @@ function ajaxGet(url, callback) {
 // CALL ONE BY ONE 
 for (i = 0; i < arrChannelElt.length; i++) {
     var channelName = arrChannelElt[i];
+    //console.log(channelName);
 
-    // CHECK IF ONLINE WITH STREAMS
-    ajaxGet("https://wind-bow.glitch.me/twitch-api/streams/" + channelName, function (channelStreams) {
-        var streamer = JSON.parse(channelStreams);
+    /*
+    ajaxGet("https://wind-bow.glitch.me/twitch-api/users/" + channelName, function (channelUser) {
+        var player = JSON.parse(channelUser);
 
-        console.log(channelName);
         var responseBoxElt = document.createElement("div");
         responseBoxElt.style.height = "100px";
         responseBoxElt.style.marginTop = "10px";
@@ -41,13 +41,55 @@ for (i = 0; i < arrChannelElt.length; i++) {
 
         var responseNameElt = document.createElement("h4");
         var responseChannelElt = document.createElement("a");
-
         responseChannelElt.style.textDecoration = "none";
         responseChannelElt.style.color = "#fff";
         responseChannelElt.setAttribute("target", "_blank");
 
+        responseChannelElt.textContent = player.display_name;
+        responseChannelElt.href = player.url;
+        responseImgElt.src = player.logo;
 
+        responseNameElt.appendChild(responseChannelElt);
+        responseBoxElt.appendChild(responseImgElt);
+        responseBoxElt.appendChild(responseNameElt);
+        document.getElementById("contenu").appendChild(responseBoxElt);
+
+
+    });
+*/
+    // NOT WORK LIKE THIS DON'T KNOW WHY
+
+    // CHECK IF ONLINE WITH STREAMS
+    ajaxGet("https://wind-bow.glitch.me/twitch-api/streams/" + channelName, function (channelStreams) {
+        var streamer = JSON.parse(channelStreams);
         if (streamer.stream !== null) {
+            //console.log(channelName);
+
+            var responseBoxElt = document.createElement("div");
+            responseBoxElt.style.height = "100px";
+            responseBoxElt.style.marginTop = "10px";
+            responseBoxElt.style.padding = "10px 0 0 10px";
+            responseBoxElt.style.border = "1px solid #381975";
+
+            var responseImgElt = document.createElement("img");
+            responseImgElt.style.height = "75px";
+            responseImgElt.style.marginRight = "10px";
+            responseImgElt.style.borderRadius = "50%";
+            responseImgElt.style.float = "left";
+
+            var responseNameElt = document.createElement("h4");
+            var responseChannelElt = document.createElement("a");
+
+            responseChannelElt.style.textDecoration = "none";
+            responseChannelElt.style.color = "#fff";
+            responseChannelElt.setAttribute("target", "_blank");
+
+
+
+
+
+
+
 
             responseChannelElt.textContent = streamer.stream.channel.display_name;
             responseChannelElt.href = streamer.stream.channel.url;
@@ -55,15 +97,43 @@ for (i = 0; i < arrChannelElt.length; i++) {
 
 
         } else {
-            //console.log(channelName);
+
             // IF NOT ONLINE CALL USER
             ajaxGet("https://wind-bow.glitch.me/twitch-api/users/" + channelName, function (channelUser) {
+
+
                 var player = JSON.parse(channelUser);
+
+
+                var responseBoxElt = document.createElement("div");
+                responseBoxElt.style.height = "100px";
+                responseBoxElt.style.marginTop = "10px";
+                responseBoxElt.style.padding = "10px 0 0 10px";
+                responseBoxElt.style.border = "1px solid #381975";
+
+                var responseImgElt = document.createElement("img");
+                responseImgElt.style.height = "75px";
+                responseImgElt.style.marginRight = "10px";
+                responseImgElt.style.borderRadius = "50%";
+                responseImgElt.style.float = "left";
+
+                var responseNameElt = document.createElement("h4");
+                var responseChannelElt = document.createElement("a");
+
+                responseChannelElt.style.textDecoration = "none";
+                responseChannelElt.style.color = "#fff";
+                responseChannelElt.setAttribute("target", "_blank");
+
+
+
+
 
                 responseChannelElt.textContent = player.display_name;
                 responseChannelElt.href = player.url;
                 responseImgElt.src = player.logo;
             });
+
+
 
         }
         responseNameElt.appendChild(responseChannelElt);
