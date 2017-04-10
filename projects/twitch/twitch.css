@@ -14,6 +14,13 @@ a:hover {
 .appBox {
     max-width: 960px;
     min-width: 320px;
+    min-height: calc(100vh - 54px);
+    border: 2px solid #381975;
+    background-image: url(https://raw.githubusercontent.com/danyweis/pics4codepen/master/twitch/twitch.png);
+    background-position: center;
+    background-size: contain;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     margin: auto;
 }
 
@@ -27,4 +34,12 @@ a:hover {
 
 #contenu {
     padding: 20px;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    background-color: #381975;
+    color: #fff;
 }

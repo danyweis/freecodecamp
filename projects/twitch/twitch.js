@@ -17,7 +17,6 @@ function ajaxGet(url, callback) {
     req.send(null);
 }
 
-
 // CALL ONE BY ONE 
 function users() {
     for (i = 0; i < arrChannelElt.length; i++) {
@@ -40,15 +39,15 @@ function users() {
 
             var responseNameElt = document.createElement("h4");
             var responseChannelElt = document.createElement("a");
+            var responseViewElt = document.createElement("span");
             responseChannelElt.style.textDecoration = "none";
             responseChannelElt.target = "_blank";
-            responseChannelElt.style.color = "#4E2D92";
+            responseChannelElt.style.color = "#222";
             responseChannelElt.href = "https://www.twitch.tv/" + player.display_name;
+            responseViewElt.style.color = "#222";
 
             var responseStatusElt = document.createElement("p");
-            responseStatusElt.style.color = "#4E2D92";
-
-
+            responseStatusElt.style.color = "#222";
 
             // CALL ALL THE STREAMS
             ajaxGet("https://wind-bow.glitch.me/twitch-api/streams/" + player.display_name, function (channelStreams) {
@@ -59,55 +58,96 @@ function users() {
                     responseChannelElt.style.color = "#fff";
                     responseChannelElt.href = "#"
                     responseChannelElt.target = "";
-                    responseChannelElt.classList = "error"
-                    responseBoxElt.style.backgroundColor = "gray";
+                    responseBoxElt.classList = "error";
+                    responseBoxElt.style.backgroundColor = "rgba(15,15,15,0.9)";
                     responseBoxElt.style.border = "2px solid black";
                     responseImgElt.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/twitch/404.png";
 
                     // IF OFFLINE 
                 } else if (streamer.stream === null) {
                     responseChannelElt.textContent = player.display_name;
-                    responseChannelElt.classList = "offline"
                     responseImgElt.src = player.logo;
-                    responseBoxElt.style.backgroundColor = "rgba(191,42,35,0.5)";
+                    responseBoxElt.classList = "offStream"
+                    responseBoxElt.style.backgroundColor = "rgba(191,42,35,0.9)";
                     responseBoxElt.style.border = "2px solid rgb(191,42,35)";
 
                     // IF ONLINE
                 } else {
-                    responseChannelElt.textContent = streamer.stream.channel.display_name;
-                    responseChannelElt.classList = "online"
+                    responseChannelElt.textContent = streamer.stream.channel.display_name
                     responseImgElt.src = streamer.stream.channel.logo;
-                    responseBoxElt.style.backgroundColor = "rgba(166,173,60,0.5)";
+                    responseBoxElt.classList = "onStream";
+                    responseBoxElt.style.backgroundColor = "rgba(173,189,6,0.9)";
                     responseBoxElt.style.border = "2px solid rgb(166,173,60)";
                     responseStatusElt.textContent = streamer.stream.channel.status;
+                    responseViewElt.textContent = " (Viewers: " + streamer.stream.viewers + ")";
                 }
                 responseNameElt.appendChild(responseChannelElt);
+                responseNameElt.appendChild(responseViewElt);
                 responseBoxElt.appendChild(responseImgElt);
                 responseBoxElt.appendChild(responseNameElt);
-
                 responseBoxElt.appendChild(responseStatusElt);
                 document.getElementById("contenu").appendChild(responseBoxElt);
             });
-
         });
-
-
     }
 }
+// LOAD THE FUNCTION USERS IN THE ONE I CALL THE API DATA
 users();
+
+/*
+
+// ===> ON EVERY CLICK ON ALL WE RELOAD THE DATA TO LOOK IF NOTHING CHANGED <=== 
 document.getElementById("all").addEventListener("click", function () {
     document.getElementById("contenu").innerHTML = "";
     users();
 });
 
-document.getElementById("online").addEventListener("click", function () {
-    document.getElementById("contenu").innerHTML = "";
-    users();
-    // if () {
-    //   consloe.log("offline")
-    //}
+*/
+
+// CLICK "ALL" ALL DIVS ARE DISPLAY BLOCK
+document.getElementById("all").addEventListener("click", function () {
+    var notOnLine = document.getElementsByClassName("offStream");
+    for (var i = 0; i < notOnLine.length; i++) {
+        notOnLine[i].style.display = "block";
+    }
+    var uneErreur = document.getElementsByClassName("error");
+    for (var i = 0; i < uneErreur.length; i++) {
+        uneErreur[i].style.display = "block";
+    }
+    var onLine = document.getElementsByClassName("onStream");
+    for (var i = 0; i < onLine.length; i++) {
+        onLine[i].style.display = "block";
+    }
 });
 
-document.getElementById("offline").addEventListener("click", function () {
+// CLICK "ONLINE" ONLY DIVS .onStream ARE DISPLAY BLOCK 
+document.getElementById("online").addEventListener("click", function () {
+    var notOnLine = document.getElementsByClassName("offStream");
+    for (var i = 0; i < notOnLine.length; i++) {
+        notOnLine[i].style.display = "none";
+    }
+    var uneErreur = document.getElementsByClassName("error");
+    for (var i = 0; i < uneErreur.length; i++) {
+        uneErreur[i].style.display = "none";
+    }
+    var onLine = document.getElementsByClassName("onStream");
+    for (var i = 0; i < onLine.length; i++) {
+        onLine[i].style.display = "block";
+    }
+});
 
+// CLICK "OFFLINE" ONLY DIVS .offStream ARE DISPLAY BLOCK 
+document.getElementById("offline").addEventListener("click", function () {
+    var notOnLine = document.getElementsByClassName("offStream");
+    for (var i = 0; i < notOnLine.length; i++) {
+        notOnLine[i].style.display = "block";
+    }
+    var onLine = document.getElementsByClassName("onStream");
+    for (var i = 0; i < onLine.length; i++) {
+        onLine[i].style.display = "none";
+    }
+    var uneErreur = document.getElementsByClassName("error");
+    for (var i = 0; i < uneErreur.length; i++) {
+        uneErreur[i].style.display = "none";
+    }
 });
