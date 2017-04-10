@@ -1,4 +1,4 @@
-var arrChannelElt = ["medrybw", "cretetion", "freecodecamp", "habathcx", "RobotCaleb", "noobs2ninjas"];
+var arrChannelElt = ["thisOneDoesNotExist", "medrybw", "cretetion", "freecodecamp", "habathcx", "RobotCaleb", "noobs2ninjas"];
 
 // CALL THE API
 function ajaxGet(url, callback) {
@@ -18,62 +18,19 @@ function ajaxGet(url, callback) {
 }
 
 
-var arrOffline = [];
-var channelName = "";
-
 // CALL ONE BY ONE 
-for (i = 0; i < arrChannelElt.length; i++) {
-    channelName = arrChannelElt[i];
-    //console.log(channelName);
+function users() {
+    for (i = 0; i < arrChannelElt.length; i++) {
+        var channelName = arrChannelElt[i];
 
-    /*
-    ajaxGet("https://wind-bow.glitch.me/twitch-api/users/" + channelName, function (channelUser) {
-        var player = JSON.parse(channelUser);
-
-        var responseBoxElt = document.createElement("div");
-        responseBoxElt.style.height = "100px";
-        responseBoxElt.style.marginTop = "10px";
-        responseBoxElt.style.padding = "10px 0 0 10px";
-        responseBoxElt.style.border = "1px solid #381975";
-
-        var responseImgElt = document.createElement("img");
-        responseImgElt.style.height = "75px";
-        responseImgElt.style.marginRight = "10px";
-        responseImgElt.style.borderRadius = "50%";
-        responseImgElt.style.float = "left";
-
-        var responseNameElt = document.createElement("h4");
-        var responseChannelElt = document.createElement("a");
-        responseChannelElt.style.textDecoration = "none";
-        responseChannelElt.style.color = "#fff";
-        responseChannelElt.setAttribute("target", "_blank");
-
-        responseChannelElt.textContent = player.display_name;
-        responseChannelElt.href = player.url;
-        responseImgElt.src = player.logo;
-
-        responseNameElt.appendChild(responseChannelElt);
-        responseBoxElt.appendChild(responseImgElt);
-        responseBoxElt.appendChild(responseNameElt);
-        document.getElementById("contenu").appendChild(responseBoxElt);
-
-
-    });
-*/
-    // NOT WORK LIKE THIS DON'T KNOW WHY
-
-    // CHECK IF ONLINE WITH STREAMS
-    ajaxGet("https://wind-bow.glitch.me/twitch-api/streams/" + channelName, function (channelStreams) {
-        var streamer = JSON.parse(channelStreams);
-        if (streamer.stream !== null) {
-            console.log(channelStreams);
-
-            arrOffline.push(streamer.stream.channel.display_name);
+        // CALL ALL THE CHANNELS
+        ajaxGet("https://wind-bow.glitch.me/twitch-api/users/" + channelName, function (channelUser) {
+            var player = JSON.parse(channelUser);
             var responseBoxElt = document.createElement("div");
             responseBoxElt.style.height = "100px";
             responseBoxElt.style.marginTop = "10px";
             responseBoxElt.style.padding = "10px 0 0 10px";
-            responseBoxElt.style.border = "1px solid #381975";
+            responseBoxElt.style.borderRadius = "15px";
 
             var responseImgElt = document.createElement("img");
             responseImgElt.style.height = "75px";
@@ -83,158 +40,74 @@ for (i = 0; i < arrChannelElt.length; i++) {
 
             var responseNameElt = document.createElement("h4");
             var responseChannelElt = document.createElement("a");
-
             responseChannelElt.style.textDecoration = "none";
-            responseChannelElt.style.color = "#fff";
-            responseChannelElt.setAttribute("target", "_blank");
+            responseChannelElt.target = "_blank";
+            responseChannelElt.style.color = "#4E2D92";
+            responseChannelElt.href = "https://www.twitch.tv/" + player.display_name;
+
+            var responseStatusElt = document.createElement("p");
+            responseStatusElt.style.color = "#4E2D92";
 
 
 
+            // CALL ALL THE STREAMS
+            ajaxGet("https://wind-bow.glitch.me/twitch-api/streams/" + player.display_name, function (channelStreams) {
+                var streamer = JSON.parse(channelStreams);
+                // IF WRONG NAME OR CHANNEL DOESN'T EXIST ANY MORE
+                if (player.status === 404) {
+                    responseChannelElt.textContent = "Ooops! " + player.message;
+                    responseChannelElt.style.color = "#fff";
+                    responseChannelElt.href = "#"
+                    responseChannelElt.target = "";
+                    responseChannelElt.classList = "error"
+                    responseBoxElt.style.backgroundColor = "gray";
+                    responseBoxElt.style.border = "2px solid black";
+                    responseImgElt.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/twitch/404.png";
 
+                    // IF OFFLINE 
+                } else if (streamer.stream === null) {
+                    responseChannelElt.textContent = player.display_name;
+                    responseChannelElt.classList = "offline"
+                    responseImgElt.src = player.logo;
+                    responseBoxElt.style.backgroundColor = "rgba(191,42,35,0.5)";
+                    responseBoxElt.style.border = "2px solid rgb(191,42,35)";
 
+                    // IF ONLINE
+                } else {
+                    responseChannelElt.textContent = streamer.stream.channel.display_name;
+                    responseChannelElt.classList = "online"
+                    responseImgElt.src = streamer.stream.channel.logo;
+                    responseBoxElt.style.backgroundColor = "rgba(166,173,60,0.5)";
+                    responseBoxElt.style.border = "2px solid rgb(166,173,60)";
+                    responseStatusElt.textContent = streamer.stream.channel.status;
+                }
+                responseNameElt.appendChild(responseChannelElt);
+                responseBoxElt.appendChild(responseImgElt);
+                responseBoxElt.appendChild(responseNameElt);
 
-
-
-            //responseChannelElt.textContent = streamer.stream.channel.display_name;
-            //responseChannelElt.href = streamer.stream.channel.url;
-            //responseImgElt.src = streamer.stream.channel.logo;
-
-            // console.log(streamer.stream);
-        }
-
-        /*else {
-
-                   // IF NOT ONLINE CALL USER
-
-                   arrOffline.push(channelName);
-
-
-               }
-               responseNameElt.appendChild(responseChannelElt);
-               responseBoxElt.appendChild(responseImgElt);
-               responseBoxElt.appendChild(responseNameElt);
-               document.getElementById("contenu").appendChild(responseBoxElt);*/
-    });
-
-    //console.log(channelName);
-}
-
-
-
-/*
-
-
- ajaxGet("https://wind-bow.glitch.me/twitch-api/users/" + channelName, function (channelUser) {
-
-
-                var player = JSON.parse(channelUser);
-
-
-                var responseBoxElt = document.createElement("div");
-                responseBoxElt.style.height = "100px";
-                responseBoxElt.style.marginTop = "10px";
-                responseBoxElt.style.padding = "10px 0 0 10px";
-                responseBoxElt.style.border = "1px solid #381975";
-
-                var responseImgElt = document.createElement("img");
-                responseImgElt.style.height = "75px";
-                responseImgElt.style.marginRight = "10px";
-                responseImgElt.style.borderRadius = "50%";
-                responseImgElt.style.float = "left";
-
-                var responseNameElt = document.createElement("h4");
-                var responseChannelElt = document.createElement("a");
-
-                responseChannelElt.style.textDecoration = "none";
-                responseChannelElt.style.color = "#fff";
-                responseChannelElt.setAttribute("target", "_blank");
-
-
-
-
-
-                responseChannelElt.textContent = player.display_name;
-                responseChannelElt.href = player.url;
-                responseImgElt.src = player.logo;
+                responseBoxElt.appendChild(responseStatusElt);
+                document.getElementById("contenu").appendChild(responseBoxElt);
             });
 
+        });
 
 
-*/
-
-
-
-
-/*
-function createApp(player) {
-    var responseBoxElt = document.createElement("div");
-    responseBoxElt.style.height = "100px";
-    responseBoxElt.style.marginTop = "10px";
-    responseBoxElt.style.padding = "10px 0 0 10px";
-    responseBoxElt.style.border = "1px solid #381975";
-
-    var responseImgElt = document.createElement("img");
-    responseImgElt.src = player.logo;
-    responseImgElt.style.height = "75px";
-    responseImgElt.style.marginRight = "10px";
-    responseImgElt.style.borderRadius = "50%";
-    responseImgElt.style.float = "left";
-    
-    var responseNameElt = document.createElement("h4");
-    var responseChannelElt = document.createElement("a");
-    responseChannelElt.textContent = player.display_name;
-    responseChannelElt.href = player.url;
-    responseChannelElt.style.textDecoration = "none";
-    responseChannelElt.style.color = "#fff";
-    responseChannelElt.setAttribute("target", "_blank");
-
-
-    responseNameElt.appendChild(responseChannelElt);
-    responseBoxElt.appendChild(responseImgElt);
-    responseBoxElt.appendChild(responseNameElt);
-
-    document.getElementById("contenu").appendChild(responseBoxElt);
-
+    }
 }
-*/
-
-
-/*
- ajaxGet("https://wind-bow.glitch.me/twitch-api/streams/" + channelName, function (channelStreams) {
-        var streamer = JSON.parse(channelStreams);
-        if (streamer.stream === null) {
-
-        } else {
-
-            //var test = "";
-            //test = streamer.stream.channel.display_name;
-            arrOn.push(test);
-            //createApp(streamer);
-        }
-
-
-    });
-
-*/
-
-
-
-
-
-
-
-
-/* document.getElementById("all").addEventListener("click", function() {
-    all();
-});
-
-document.getElementById("online").addEventListener("click", function() {
-    online();
-});
-
-//console.log(arrCree);
-
-document.getElementById("offline").addEventListener("click", function() {
+users();
+document.getElementById("all").addEventListener("click", function () {
     document.getElementById("contenu").innerHTML = "";
-    arrOff = [];
-*/
+    users();
+});
+
+document.getElementById("online").addEventListener("click", function () {
+    document.getElementById("contenu").innerHTML = "";
+    users();
+    // if () {
+    //   consloe.log("offline")
+    //}
+});
+
+document.getElementById("offline").addEventListener("click", function () {
+
+});
