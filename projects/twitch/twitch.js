@@ -1,4 +1,4 @@
-var arrChannelElt = ["thisOneDoesNotExist", "medrybw", "cretetion", "freecodecamp", "habathcx", "RobotCaleb", "noobs2ninjas"];
+var arrChannelElt = ["thisOneDoesNotExist", "medrybw", "cretetion", "freecodecamp", "habathcx", "noobs2ninjas"];
 
 // CALL THE API
 function ajaxGet(url, callback) {
@@ -53,7 +53,7 @@ function users() {
             ajaxGet("https://wind-bow.glitch.me/twitch-api/streams/" + player.display_name, function (channelStreams) {
                 var streamer = JSON.parse(channelStreams);
                 // IF WRONG NAME OR CHANNEL DOESN'T EXIST ANY MORE
-                if (player.status === 404) {
+                if (player.status >= 400 || player.status < 500) {
                     responseChannelElt.textContent = "Ooops! " + player.message;
                     responseChannelElt.style.color = "#fff";
                     responseChannelElt.href = "#"
@@ -66,21 +66,34 @@ function users() {
                     // IF OFFLINE 
                 } else if (streamer.stream === null) {
                     responseChannelElt.textContent = player.display_name;
-                    responseImgElt.src = player.logo;
                     responseBoxElt.classList = "offStream"
                     responseBoxElt.style.backgroundColor = "rgba(191,42,35,0.9)";
                     responseBoxElt.style.border = "2px solid rgb(191,42,35)";
 
+                    // IF CHANNEL HAS NO LOGO 
+                    if (player.logo === null) {
+                        responseImgElt.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/twitch/noImage.png";
+                    } else {
+                        responseImgElt.src = player.logo;
+                    }
+
                     // IF ONLINE
                 } else {
                     responseChannelElt.textContent = streamer.stream.channel.display_name
-                    responseImgElt.src = streamer.stream.channel.logo;
                     responseBoxElt.classList = "onStream";
                     responseBoxElt.style.backgroundColor = "rgba(173,189,6,0.9)";
                     responseBoxElt.style.border = "2px solid rgb(166,173,60)";
                     responseStatusElt.textContent = streamer.stream.channel.status;
                     responseViewElt.textContent = " (Viewers: " + streamer.stream.viewers + ")";
+
+                    // IF CHANNEL HAS NO LOGO 
+                    if (streamer.stream.channel.logo === null) {
+                        responseImgElt.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/twitch/noImage.png";
+                    } else {
+                        responseImgElt.src = streamer.stream.channel.logo;
+                    }
                 }
+
                 responseNameElt.appendChild(responseChannelElt);
                 responseNameElt.appendChild(responseViewElt);
                 responseBoxElt.appendChild(responseImgElt);
@@ -94,15 +107,7 @@ function users() {
 // LOAD THE FUNCTION USERS IN THE ONE I CALL THE API DATA
 users();
 
-/*
 
-// ===> ON EVERY CLICK ON ALL WE RELOAD THE DATA TO LOOK IF NOTHING CHANGED <=== 
-document.getElementById("all").addEventListener("click", function () {
-    document.getElementById("contenu").innerHTML = "";
-    users();
-});
-
-*/
 
 // CLICK "ALL" ALL DIVS ARE DISPLAY BLOCK
 document.getElementById("all").addEventListener("click", function () {
@@ -149,5 +154,26 @@ document.getElementById("offline").addEventListener("click", function () {
     var uneErreur = document.getElementsByClassName("error");
     for (var i = 0; i < uneErreur.length; i++) {
         uneErreur[i].style.display = "none";
+    }
+});
+
+// REFRESH THE CHANNELS IF SOMETHING CHANGED IN THE TIME THE APP IS OPEN
+document.getElementById("refreshBtn").addEventListener("click", function () {
+    document.getElementById("contenu").innerHTML = "";
+    users();
+});
+
+// SEARCH FOR A NEW CHANNEL AND PUSH THE CHANNEL IN THE ARRAY
+
+document.getElementById("searchBtn").addEventListener("click", function () {
+    var newChannel = document.getElementById("searchBox").value;
+    console.log(newChannel);
+    if (newChannel === "") {
+        // IF NOTTHIN IN THE SEARCHBOX DO NOTHING
+    } else {
+        arrChannelElt.push(newChannel);
+        document.getElementById("searchBox").value = "";
+        document.getElementById("contenu").innerHTML = "";
+        users();
     }
 });

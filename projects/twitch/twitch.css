@@ -6,34 +6,65 @@ a:hover {
     text-decoration: underline;
 }
 
+p {
+    font-size: 14px;
+}
+
+.cursors {
+    cursor: pointer;
+}
+
 #page {
     min-height: 100vh;
-    /*background-color: #6445A2;*/
 }
 
 .appBox {
     max-width: 960px;
-    min-width: 320px;
     min-height: calc(100vh - 54px);
     border: 2px solid #381975;
+    margin: auto;
     background-image: url(https://raw.githubusercontent.com/danyweis/pics4codepen/master/twitch/twitch.png);
     background-position: center;
     background-size: contain;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    margin: auto;
 }
 
 .navFlexBox {
     display: flex;
+    flex-direction: column;
+    background-color: #381975;
+    color: #fff;
+}
+
+.refresh {
+    margin-top: 0px;
+    margin-bottom: 1em;
+}
+
+#searchBox {
+    border-radius: 8px;
+    color: black;
+}
+
+#searchBtn {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+#topFlexBox,
+#buttomFlexBox {
+    display: flex;
     justify-content: space-around;
-    height: 50px;
     background-color: #381975;
     color: #fff;
 }
 
 #contenu {
-    padding: 20px;
+    padding: 10px;
 }
 
 #footer {
@@ -42,4 +73,18 @@ a:hover {
     height: 50px;
     background-color: #381975;
     color: #fff;
+    max-width: 960px;
+    margin: auto;
+}
+
+#portfolio {
+    color: #fff;
+}
+
+.fa-heart {
+    color: red;
+}
+
+.fa-coffee {
+    color: brown;
 }
