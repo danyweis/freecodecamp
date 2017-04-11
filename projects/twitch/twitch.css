@@ -19,7 +19,7 @@ p {
 }
 
 .appBox {
-    max-width: 960px;
+    max-width: 640px;
     min-height: calc(100vh - 54px);
     border: 2px solid #381975;
     margin: auto;
@@ -37,9 +37,8 @@ p {
     color: #fff;
 }
 
-.refresh {
-    margin-top: 0px;
-    margin-bottom: 1em;
+#search {
+    margin-bottom: 10px;
 }
 
 #searchBox {
@@ -47,18 +46,23 @@ p {
     color: black;
 }
 
-#searchBtn {
+#searchBtn,
+.refresh {
     font-size: 18px;
     color: #fff;
-    text-decoration: none;
-    font-weight: bold;
     margin-left: 10px;
 }
 
-#topFlexBox,
-#buttomFlexBox {
+#topFlexBox {
     display: flex;
     justify-content: space-around;
+    background-color: #381975;
+    color: #fff;
+}
+
+#buttomFlexBox {
+    display: flex;
+    justify-content: center;
     background-color: #381975;
     color: #fff;
 }
@@ -73,7 +77,7 @@ p {
     height: 50px;
     background-color: #381975;
     color: #fff;
-    max-width: 960px;
+    max-width: 640px;
     margin: auto;
 }
 
