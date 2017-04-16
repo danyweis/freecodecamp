@@ -21,7 +21,7 @@ p {
 .appBox {
     max-width: 640px;
     min-height: calc(100vh - 54px);
-    border: 2px solid #381975;
+    border: 2px solid #6C2498;
     margin: auto;
     background-image: url(https://raw.githubusercontent.com/danyweis/pics4codepen/master/twitch/twitch.png);
     background-position: center;
@@ -33,7 +33,7 @@ p {
 .navFlexBox {
     display: flex;
     flex-direction: column;
-    background-color: #381975;
+    background-color: #6C2498;
     color: #fff;
 }
 
@@ -56,15 +56,12 @@ p {
 #topFlexBox {
     display: flex;
     justify-content: space-around;
-    background-color: #381975;
-    color: #fff;
 }
 
 #buttomFlexBox {
+    padding-bottom: 10px;
     display: flex;
     justify-content: center;
-    background-color: #381975;
-    color: #fff;
 }
 
 #contenu {
@@ -75,9 +72,9 @@ p {
     display: flex;
     justify-content: center;
     height: 50px;
-    background-color: #381975;
+    background-color: #6C2498;
     color: #fff;
-    max-width: 640px;
+    max-width: 644px;
     margin: auto;
 }
 

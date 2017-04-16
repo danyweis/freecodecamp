@@ -1,4 +1,4 @@
-var arrChannelElt = ["thisOneDoesNotExist", "medrybw", "cretetion", "freecodecamp", "habathcx", "noobs2ninjas"];
+var arrChannelElt = ["Exemple if not Exist", "medrybw", "cretetion", "freecodecamp", "habathcx", "noobs2ninjas"];
 
 // CALL THE API
 function ajaxGet(url, callback) {
@@ -30,6 +30,10 @@ function users() {
             responseBoxElt.style.marginTop = "10px";
             responseBoxElt.style.padding = "10px 0 0 10px";
             responseBoxElt.style.borderRadius = "15px";
+            responseBoxElt.style.backgroundColor = "#eee";
+            responseBoxElt.style.backgroundPosition = "right";
+            responseBoxElt.style.backgroundSize = "contain";
+            responseBoxElt.style.backgroundRepeat = "no-repeat";
 
             var responseImgElt = document.createElement("img");
             responseImgElt.style.height = "75px";
@@ -55,20 +59,18 @@ function users() {
                 // IF WRONG NAME OR CHANNEL DOESN'T EXIST ANY MORE
                 if (player.status >= 400 || player.status < 500) {
                     responseChannelElt.textContent = "Ooops! " + player.message;
-                    responseChannelElt.style.color = "#fff";
                     responseChannelElt.href = "#"
                     responseChannelElt.target = "";
                     responseBoxElt.classList = "error";
-                    responseBoxElt.style.backgroundColor = "rgba(15,15,15,0.9)";
-                    responseBoxElt.style.border = "2px solid black";
+                    responseBoxElt.style.boxShadow = "2px 2px 5px black"
                     responseImgElt.src = "https://raw.githubusercontent.com/danyweis/pics4codepen/master/twitch/404.png";
 
                     // IF OFFLINE 
                 } else if (streamer.stream === null) {
                     responseChannelElt.textContent = player.display_name;
                     responseBoxElt.classList = "offStream"
-                    //responseBoxElt.style.backgroundColor = "rgba(191,42,35,0.9)";
-                    responseBoxElt.style.border = "2px solid rgb(191,42,35)";
+                    responseBoxElt.style.backgroundImage = 'url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/twitch/twitchOffline.png")';
+                    responseBoxElt.style.boxShadow = "2px 2px 5px #FF0000"
 
                     // IF CHANNEL HAS NO LOGO 
                     if (player.logo === null) {
@@ -81,9 +83,8 @@ function users() {
                 } else {
                     responseChannelElt.textContent = streamer.stream.channel.display_name
                     responseBoxElt.classList = "onStream";
-                    //responseBoxElt.style.backgroundColor = "rgba(173,189,6,0.9)";
-                    responseBoxElt.style.border = "2px solid green";
-                    //rgb(166,173,60)";
+                    responseBoxElt.style.backgroundImage = 'url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/twitch/twitchOnline.png")';
+                    responseBoxElt.style.boxShadow = "2px 2px 5px #30FF00"
                     responseStatusElt.textContent = streamer.stream.channel.status;
                     responseViewElt.textContent = " (Viewers: " + streamer.stream.viewers + ")";
 
