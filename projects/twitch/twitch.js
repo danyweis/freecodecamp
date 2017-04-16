@@ -67,7 +67,7 @@ function users() {
                 } else if (streamer.stream === null) {
                     responseChannelElt.textContent = player.display_name;
                     responseBoxElt.classList = "offStream"
-                    responseBoxElt.style.backgroundColor = "rgba(191,42,35,0.9)";
+                    //responseBoxElt.style.backgroundColor = "rgba(191,42,35,0.9)";
                     responseBoxElt.style.border = "2px solid rgb(191,42,35)";
 
                     // IF CHANNEL HAS NO LOGO 
@@ -81,8 +81,9 @@ function users() {
                 } else {
                     responseChannelElt.textContent = streamer.stream.channel.display_name
                     responseBoxElt.classList = "onStream";
-                    responseBoxElt.style.backgroundColor = "rgba(173,189,6,0.9)";
-                    responseBoxElt.style.border = "2px solid rgb(166,173,60)";
+                    //responseBoxElt.style.backgroundColor = "rgba(173,189,6,0.9)";
+                    responseBoxElt.style.border = "2px solid green";
+                    //rgb(166,173,60)";
                     responseStatusElt.textContent = streamer.stream.channel.status;
                     responseViewElt.textContent = " (Viewers: " + streamer.stream.viewers + ")";
 
