@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+
+#app {
+    height: 100vh;
+    width: 100vw;
+    background-color: #bbb;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px;
+}
+
+#titre {
+    height: 10%;
+    background-color: #fff;
+}
+
+#calcule {
+    height: 20%;
+}
+
+#resultat {
+    height: 30%;
+}
+
+#affichage {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+#numbers {
+    width: calc(100% - 15%);
+    height: 100%;
+    background-color: #ddd;
+}
+
+#del {
+    /*background-color: pink;*/
+    background-image: url(../img/delete-512.png);
+    -webkit-background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: ;
+    width: 15%;
+    height: 50%;
+    float: right;
+}
+
+#boutton {
+    height: 70%;
+    background-color: #fff;
+}
