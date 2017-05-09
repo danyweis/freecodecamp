@@ -1,7 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #000;
+    /*font-family: 'Orbitron', sans-serif;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Caesar Dressing', cursive;*/
 }
 
 #app {
@@ -10,10 +12,11 @@ body {
     background-color: #bbb;
     display: flex;
     flex-direction: column;
-    border-radius: 50px;
+    /*border-radius: 50px;*/
 }
 
 #titre {
+    text-align: center;
     height: 10%;
     background-color: #fff;
 }
@@ -24,10 +27,12 @@ body {
 
 #resultat {
     height: 30%;
+    text-align: right;
 }
 
 #affichage {
     height: 70%;
+    text-align: right;
     display: flex;
     justify-content: center;
     align-items: center
@@ -40,7 +45,7 @@ body {
 }
 
 #del {
-    /*background-color: pink;*/
+    cursor: pointer;
     background-image: url(../img/delete-512.png);
     -webkit-background-size: contain;
     background-repeat: no-repeat;
@@ -54,4 +59,31 @@ body {
 #boutton {
     height: 70%;
     background-color: #fff;
+}
+
+#test1 {
+    background-color: pink;
+}
+
+#test2 {
+    background-color: hotpink;
+}
+
+#test3 {
+    background-color: lightpink;
+}
+
+#test4 {
+    background-color: deeppink;
+}
+
+.rows {
+    height: 25%;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+}
+
+.numbers {
+    width: 33.33333%
 }
