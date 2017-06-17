@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    /*font-family: 'Orbitron', sans-serif;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Caesar Dressing', cursive;*/
+}
+
+#app {
+    height: 100vh;
+    width: 100vw;
+    background-color: #bbb;
+    display: flex;
+    flex-direction: column;
+    /*border-radius: 50px;*/
+}
+
+#titre {
+    text-align: center;
+    height: 10%;
+    background-color: #fff;
+}
+
+#calcule {
+    height: 20%;
+}
+
+#resultat {
+    height: 30%;
+    text-align: right;
+}
+
+#affichage {
+    height: 70%;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+#numbers {
+    width: calc(100% - 15%);
+    height: 100%;
+    background-color: #ddd;
+}
+
+#del {
+    cursor: pointer;
+    background-image: url(../img/delete-512.png);
+    -webkit-background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: ;
+    width: 15%;
+    height: 50%;
+    float: right;
+}
+
+#boutton {
+    height: 70%;
+    background-color: #fff;
+}
+
+#test1 {
+    background-color: pink;
+}
+
+#test2 {
+    background-color: hotpink;
+}
+
+#test3 {
+    background-color: lightpink;
+}
+
+#test4 {
+    background-color: deeppink;
+}
+
+.rows {
+    height: 25%;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+}
+
+.numbers {
+    width: 33.33333%
+}
