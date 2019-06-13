@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+}
+
+#navbar {
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #444857;
+    z-index: 10000;
+}
+
+.logoBox {
+    width: 20%;
+    padding: 10px 0 10px 20px;
+}
+
+#danyCodeLogo {
+    height: 50px;
+}
+
+.linkBox {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.navLink {
+    width: 33.33%;
+    text-align: center;
+    color: #bada55;
+    text-decoration: none;
+    font-size: 19px;
+}
+
+.navLink:hover {
+    font-size: 21px;
+    transform: rotate(-3deg);
+}
+
+#welcome-section {
+    height: 100vh;
+    background-color: #444857;
+    /*   background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/fccPortfolio/road-405764_1920.jpg");
+  background-position: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #bada55;
+    text-align: center;
+}
+
+#welcome-section>h1 {
+    font-family: 'Nothing You Could Do', cursive;
+    font-size: 10vh;
+}
+
+#welcome-section>h3 {
+    font-size: 5vh;
+}
+
+/* PROJECTS */
+#projects {
+    border-top: 70px solid transparent;
+    margin-top: -70px;
+}
+
+.project-tile {
+    background-color: pink;
+    margin: 10vw;
+    height: 65vh;
+    z-index: -5;
+}
+
+.project-tile:hover {
+    height: calc(65vh-5%);
+    padding-top: 5%;
+}
+
+.project-tile:hover .project {
+    background-color: blue;
+    height: 90%;
+}
+
+.project {
+    background-color: #bada55;
+    height: 100%;
+    width: 100%;
+    /*   z-index:0; */
+    /*   position:absolute; */
+}
+
+/* /* .project:hover{ */
+/*   transform:rotate(15deg); */
+/*   background-color: blue; */
+/*   width:90%; */
+/*   height:90%; */
+/* } */
+/* CONTACT */
+#contact {
+    border-top: 70px solid transparent;
+    margin-top: -70px;
+}
+
+@media (max-width:500px) {
+    .navLink {
+        font-size: 13px;
+    }
+
+    .navLink:hover {
+        font-size: 14px;
+    }
+
+    #welcome-section>h3 {
+        font-size: 3vh;
+    }
+}
