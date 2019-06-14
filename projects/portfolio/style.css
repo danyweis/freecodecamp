@@ -48,8 +48,6 @@ body {
 #welcome-section {
     height: 100vh;
     background-color: #444857;
-    /*   background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/fccPortfolio/road-405764_1920.jpg");
-  background-position: center; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,46 +66,94 @@ body {
 }
 
 /* PROJECTS */
-#projects {
+#portfolio {
     border-top: 70px solid transparent;
     margin-top: -70px;
+    /*   min-height:100vh; */
+    padding: 70px 0 140px;
+}
+
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.projectTitle {
+    text-align: center;
+    height: 60px;
 }
 
 .project-tile {
-    background-color: pink;
-    margin: 10vw;
-    height: 65vh;
-    z-index: -5;
-}
-
-.project-tile:hover {
-    height: calc(65vh-5%);
-    padding-top: 5%;
-}
-
-.project-tile:hover .project {
-    background-color: blue;
-    height: 90%;
+    background-color: #bada55;
+    height: 200px;
+    width: 250px;
+    margin: 20px;
 }
 
 .project {
-    background-color: #bada55;
-    height: 100%;
-    width: 100%;
-    /*   z-index:0; */
-    /*   position:absolute; */
+    height: 200px;
+    width: 250px;
 }
 
-/* /* .project:hover{ */
-/*   transform:rotate(15deg); */
-/*   background-color: blue; */
-/*   width:90%; */
-/*   height:90%; */
-/* } */
+.project:hover {
+    transform: rotate(-5deg);
+}
+
+.project1 {
+    background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/fccPortfolio/wiki.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.project2 {
+    background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/fccPortfolio/meteo.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.project3 {
+    background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/fccPortfolio/quote.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.project4 {
+    background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/fccPortfolio/portfolio.png");
+    background-position: center;
+    background-size: cover;
+}
+
 /* CONTACT */
 #contact {
     border-top: 70px solid transparent;
     margin-top: -70px;
+    min-height: 50vh;
+    background-color: #1B2B34;
+    color: #bada55;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.social {
+    width: 75vw;
+    font-size: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.socialLinks {
+    color: #bada55;
+    width: 25%;
+    height: 70px;
+    text-align: center;
+}
+
+.socialLinks:hover {
+    transform: rotate(-3deg);
+    font-size: 52px;
 }
 
 @media (max-width:500px) {
