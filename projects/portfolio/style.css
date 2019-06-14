@@ -101,27 +101,71 @@ body {
 }
 
 .project1 {
+    position: relative;
     background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/fccPortfolio/wiki.png");
     background-position: center;
     background-size: cover;
 }
 
+.project1::before {
+    content: "Wiki search";
+    position: absolute;
+    top: -35px;
+    width: 100%;
+    text-align: center;
+    color: #bada55;
+    font-size: 20px;
+}
+
 .project2 {
+    position: relative;
     background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/fccPortfolio/meteo.png");
     background-position: center;
     background-size: cover;
 }
 
+.project2::before {
+    content: "Weather App";
+    position: absolute;
+    top: -35px;
+    width: 100%;
+    text-align: center;
+    color: #bada55;
+    font-size: 20px;
+}
+
 .project3 {
+    position: relative;
     background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/fccPortfolio/quote.png");
     background-position: center;
     background-size: cover;
 }
 
+.project3::before {
+    content: "Quote Machine";
+    position: absolute;
+    top: -35px;
+    width: 100%;
+    text-align: center;
+    color: #bada55;
+    font-size: 20px;
+}
+
 .project4 {
+    position: relative;
     background-image: url("https://raw.githubusercontent.com/danyweis/pics4codepen/master/fccPortfolio/portfolio.png");
     background-position: center;
     background-size: cover;
+}
+
+.project4::before {
+    content: "Portfolio 2017";
+    position: absolute;
+    top: -35px;
+    width: 100%;
+    text-align: center;
+    color: #bada55;
+    font-size: 20px;
 }
 
 /* CONTACT */
