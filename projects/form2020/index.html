@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dog Lover?</title>
+</head>
+<body>
+    
+<div id="the-form">
+    <h1 id="title">Dog Lover?</h1>
+    <p id="description">With this form we will find out if you are a real dog lover!</p>  
+    
+    <form action="#" id="survey-form">
+      
+      <p class="formBlock">
+        <label for="name" id="name-label">Name</label><br>
+        <input name="userName" type="text" id="name" placeholder="Enter your Name" required>
+      </p>
+      
+      <p class="formBlock">
+        <label for="email" id="email-label">eMail</label>
+        <br>
+        <input name="userEmail" type="email" id="email" placeholder="exemple@email.com" required>
+       </p>
+      
+      <p class="formBlock">
+        <label for="number" id="number-label">How many dogs you have?</label>
+        <br>
+        <input type="number" id="number" name="numDogs" min="0" max="100" placeholder="min 0 / max 100">
+      </p>
+      
+      <p class="formBlock">
+        <label for="dropdown">What size you prefer?</label>
+        <br>
+        <select name="size of dog" id="dropdown">
+          <option value="">Favorite Size</option>
+          <option value="xs">X-Small</option>
+          <option value="s">Small</option>
+          <option value="m">Mediun</option>
+          <option value="l">Large</option>
+          <option value="xl">X-Large</option>
+          <option value="xxl">XX-Large</option>
+        </select>
+      </p>
+      
+      <fieldset>
+        <ledgend for="radio">If you find a dog on the street would you take him home?</ledgend>
+        <br>
+        <input type="radio" name="home" value="Defenetly" id="yes" checked>
+        <label for="yes" >Definitly</label>
+        <br>
+        <input type="radio" name="home" value="Maybe" id="maybe">
+        <label for="maybe" >Maybe</label>
+        <br>
+        <input type="radio" name="home" value="no" id="no">
+        <label for="no" >No!</label>
+        
+      </fieldset>
+      <fieldset>
+        <ledgend>What's you favorit colors for dogs?</ledgend>
+        <br>
+        <input type="checkbox" name="dogColor" value="black" id="cBlack">
+        <label for="cBlack">Black</label>
+        <br>
+        <input type="checkbox" name="dogColor" value="white" id="cWhite">
+        <label for="cWhite">White</label>
+        <br>
+        <input type="checkbox" name="dogColor" value="brown" id="cBrown">
+        <label for="cBrown">Brown</label>
+        <br>
+        <input type="checkbox" name="dogColor" value="gray" id="cGray">
+        <label for="cGray">Gray</label>
+        <br>
+        <input type="checkbox" name="dogColor" value="gold" id="cGold">
+        <label for="cGold">Gold</label>
+        <br>
+        <input type="checkbox" name="dogColor" value="other" id="cOther">
+        <label for="cOther">Other</label>
+      </fieldset>
+      <p>
+        <label for="yourStory">Do you have a story you want us to know?</label>
+        <br>
+        <textarea id="yourStory" cols="50" rows="5">
+        </textarea>
+      </p>
+      <button type="submit"  id="submit">Submit form</button>
+    </form>
+  </div>
+  
+</body>
+</html>
