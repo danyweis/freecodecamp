@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+#nav-bar {
+    color: whitesmoke;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 65px;
+    width: 100%;
+    padding: 5px 15px;
+    background: gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.logo {
+    max-height: 65px;
+    display: flex;
+    align-items: center;
+    /*   color: #22ee5b; */
+}
+
+#header-img {
+    height: 50px;
+    width: auto;
+    filter: drop-shadow(1px 1px #22ee5b);
+}
+
+.links {
+    width: 50%;
+}
+
+.links>ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.links>ul>li {
+    list-style-type: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: whitesmoke;
+}
+
+.links>ul>li:hover {
+    transform: scale(1.1);
+}
+
+
+/*  MAIIL  */
+
+#mail {
+    margin-top: 65px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+#form {
+    position: relative;
+    width: 400px;
+    height: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+#email::placeholder {
+    color: transparent;
+}
+
+#email {
+    width: 100%;
+    height: 100%;
+    color: #22ee5b;
+    border: transparent;
+    padding-top: 25px;
+    box-shadow: 0 2px 2px -3px black inset;
+    box-shadow: 2px 2px 2px -3px black inset;
+    border-radius: 5px;
+    background: whitesmoke;
+}
+
+.lable-email {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #1e1f26;
+}
+
+.lable-email::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid #22ee5b;
+    left: 0;
+    bottom: -1;
+}
+
+.the-email {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+
+}
+
+#submit {
+    margin: 20px auto;
+    color: #22ee5b;
+    background: transparent;
+    border-radius: 7px;
+    padding: 3px;
+    transition: all 0.3s ease-in;
+}
+
+#submit:hover {
+    background: #22ee5b;
+    color: whitesmoke;
+}
+
+/* SALES */
+
+#sales {
+    min-height: 300px;
+    width: 100%;
+}
+
+.pen-img {
+    width: 90%;
+    height: 300px;
+    margin-left: 5%;
+    background: url(https://cdn.pixabay.com/photo/2015/03/26/10/23/notepad-691250__340.jpg) no-repeat;
+    background-position: center;
+
+}
+
+.text {
+    min-height: 150px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Pricing */
+
+#pricing {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.offers {
+    width: 30%;
+    padding: 2.5%;
+    border: 2px solid gray;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.offers>h3 {
+    text-align: center;
+}
+
+.offers>p {
+    text-align: justify;
+}
+
+footer {
+    margin: 25px;
+}
+
+@media (max-width:750px) {
+    .links {
+        width: 80%;
+    }
+
+    .nav-link {
+        font-size: 12px;
+    }
+
+    .mediaS {
+        display: none;
+    }
+
+    #form {
+        width: 300px;
+    }
+
+    #pricing {
+        flex-direction: column;
+    }
+
+    .offers {
+        width: 90%;
+        margin: 5px 5%;
+    }
+}
