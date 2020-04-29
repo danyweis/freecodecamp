@@ -2,6 +2,28 @@
 
 //If all letters are present in the range, return undefined.
 
+// Solution 2020
+
+function fearNotLetter(str) {
+  const testStr = "abcdefghijklmnopqrstuvwxyz";
+  let a = testStr.search(str.slice(0,1))
+  let b = testStr.search(str.slice(-1))
+  let io = testStr.slice(a,b +1)
+  if (io === str){
+    return undefined
+  } else {
+    for (let i = 0; i < str.length; i++){
+      if (io[i] != str[i]){
+        return io[i]
+      }
+    }
+  }
+}
+console.log(fearNotLetter("abde"));
+fearNotLetter("abde");
+
+
+// Old solution
 
 function fearNotLetter(str) {
     var arr = str.split('');
