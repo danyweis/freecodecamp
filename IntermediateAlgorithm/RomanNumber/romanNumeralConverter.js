@@ -3,6 +3,114 @@
 
 
 
+// MY CODE 2020
+console.clear();
+function convertToRoman(num) {
+let result = []
+let off = ''
+for (let i = num ; i > 0 ; i = i - off){
+  console.log(i);
+  if (i >= 1 && i < 4){
+      result.push('I')
+      off = 1
+
+   } else if(i === 4){
+      result.push('IV')
+      off = 4
+    } else if(i >= 5 && i < 9){
+      result.push('V')
+      off = 5
+    }  else if(i === 9){
+      result.push('IX')
+      off = 9
+    }
+    else if(i >= 10 && i < 40){
+      result.push('X')
+      off = 10
+    }
+    else if(i >= 40 && i < 50){
+      result.push('XL')
+      off = 40
+    }
+    else if(i >= 50 && i < 90){
+      result.push('L')
+      off = 50
+    }
+   
+    else if(i >= 90 && i < 100){
+      result.push('XC')
+      off = 90
+    }
+    else if(i >= 100 && i < 400){
+      result.push('C')
+      off = 100
+    }
+    else if(i >= 400 && i < 500){
+      result.push('CD')
+      off = 400
+    }
+    else if(i >= 500 && i < 900){
+      result.push('D')
+      off = 500
+    }
+    else if(i >= 900 && i < 1000){
+      result.push('CM')
+      off = 900
+    }
+    else if(i >= 1000 && i < 4000){
+      result.push('M')
+      off = 1000
+    }
+    else {
+      result.push('Sorry that number is to big')
+      break;
+    }
+}
+console.log(result.join(''));
+  return result.join('');
+}
+
+convertToRoman(574);
+
+
+// CODE FOUND ON STACKOVERFLOW
+
+function convertToRoman(num) {
+    var roman = {
+      M: 1000,
+      CM: 900,
+      D: 500,
+      CD: 400,
+      C: 100,
+      XC: 90,
+      L: 50,
+      XL: 40,
+      X: 10,
+      IX: 9,
+      V: 5,
+      IV: 4,
+      I: 1
+    };
+    var str = '';
+  
+    for (var i of Object.keys(roman)) {
+      var q = Math.floor(num / roman[i]);
+      num -= q * roman[i];
+      str += i.repeat(q);
+    }
+  
+    return str;
+  }
+  convertToRoman(3689);
+  
+  /*
+  with 3689 we Do Math.floor because 3689(num) / 1000(roman[i]) = 3.689 => floor makes it 3
+  then num(3689) -= q (3)* roman[i](1000) => 3000
+  then str (result starts as emty string) += add i.repeat(q) (i = M repeat as many times as q is) 
+  now we have 689 left  then all starts over again
+ */
+
+// OLD SOLUTION
 
 function convertToRoman(num) {
     var arr = [];
