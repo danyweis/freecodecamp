@@ -52,7 +52,7 @@
 // Only change code below this line
 
 class Thermostat{   // WE CREATE THE CLASS THERMOSTAT
-    constructotr(tempF){    // WE GIVE IT A CONSTRUCTOR WITCH TAKES A FAHRENHEIT VALUE
+    constructor(tempF){    // WE GIVE IT A CONSTRUCTOR WITCH TAKES A FAHRENHEIT VALUE
         this._tempF = tempF;    // CREATE A PRIVATE VALUE THIS._TEMPF
     }
     get temperature(){  // CREATE A GETTER TEMPERATURE
