@@ -4,7 +4,7 @@
 
 // to create the URL
  var urlStart = "";
- var key = "&appid=88ed677935f66ca8ba614806bb5b6618";
+ var key = "enter the key";
  var longi = "&lon=";
  var celsius = "&units=metric";
 
